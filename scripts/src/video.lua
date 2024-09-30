@@ -69,6 +69,18 @@ end
 
 --------------------------------------------------
 --
+--@src/devices/video/atirage128.h,VIDEOS["ATIRAGE128"] = true
+--------------------------------------------------
+
+if (VIDEOS["ATIRAGE128"]~=null) then
+	files {
+		MAME_DIR .. "src/devices/video/atirage128.cpp",
+		MAME_DIR .. "src/devices/video/atirage128.h",
+	}
+end
+
+--------------------------------------------------
+--
 --@src/devices/video/bufsprite.h,VIDEOS["BUFSPRITE"] = true
 --------------------------------------------------
 
