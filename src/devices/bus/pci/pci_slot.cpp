@@ -13,6 +13,7 @@
 #include "ds2416.h"
 #include "ess_maestro.h"
 #include "geforce.h"
+#include "inteli740.h"
 #include "mga2064w.h"
 #include "ncr53c825.h"
 #include "neon250.h"
@@ -178,6 +179,8 @@ void agp_cards(device_slot_interface &device)
 	device.option_add("quadro",         QUADRO);
 	// Cirrus Logic
 	device.option_add("laguna3d",       GD5465_LAGUNA3D);
+	// Intel
+	device.option_add("inteli740",      INTELI740);
 	// PowerVR VideoLogic
 	device.option_add("neon250",        NEON250);
 	// SiS

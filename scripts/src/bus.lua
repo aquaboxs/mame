@@ -5641,6 +5641,8 @@ if (BUSES["PCI"]~=null) then
 		MAME_DIR .. "src/devices/bus/pci/ess_maestro.h",
 		MAME_DIR .. "src/devices/bus/pci/geforce.cpp",
 		MAME_DIR .. "src/devices/bus/pci/geforce.h",
+		MAME_DIR .. "src/devices/bus/pci/inteli740.cpp",
+		MAME_DIR .. "src/devices/bus/pci/inteli740.h",
 		MAME_DIR .. "src/devices/bus/pci/mga2064w.cpp",
 		MAME_DIR .. "src/devices/bus/pci/mga2064w.h",
 		MAME_DIR .. "src/devices/bus/pci/ncr53c825.cpp",
