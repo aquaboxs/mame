@@ -36,6 +36,14 @@ protected:
 private:
 	u8 m_repaint[2]{};
 	u16 m_ext_offset = 0;
+
+	struct
+	{
+		struct
+		{
+			bool scl, sda;
+		} i2c;
+	} nv3;
 };
 
 DECLARE_DEVICE_TYPE(NVIDIA_NV3_VGA, nvidia_nv3_vga_device)

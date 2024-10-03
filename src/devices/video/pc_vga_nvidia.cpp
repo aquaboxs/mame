@@ -310,11 +310,20 @@ void nvidia_nv3_vga_device::crtc_map(address_map &map)
  * ---- x--- SDA
  * ---- -x-- SCL
  */
-// map(0x3e, 0x3e)
+ map(0x3e, 0x3e).lr8(
+		NAME([this] (offs_t offset) {
+			return (nv3.i2c.sda << 3) | (nv3.i2c.scl << 2);
+		})
+	);
 	// I2C_WRITE
 /*
  * ---x ---- SCL
  * ---- x--- SDA
  */
-// map(0x3f, 0x3f)
+ map(0x3f, 0x3f).lw8(
+		NAME([this] (offs_t offset, u8 data) {
+			nv3.i2c.scl = data & 0x20;
+			nv3.i2c.sda = data & 0x10;
+		})
+	);
 }

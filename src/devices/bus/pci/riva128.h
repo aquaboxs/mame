@@ -34,7 +34,6 @@ protected:
 
 	virtual void mmio_map(address_map &map) ATTR_COLD;
 	virtual void vram_aperture_map(address_map &map) ATTR_COLD;
-	virtual void indirect_io_map(address_map &map) ATTR_COLD;
 
 	required_device<nvidia_nv3_vga_device> m_svga;
 	required_memory_region m_vga_rom;
@@ -44,10 +43,15 @@ private:
 	u8 vram_r(offs_t offset);
 	void vram_w(offs_t offset, uint8_t data);
 
-	u32 unmap_log_r(offs_t offset, u32 mem_mask = ~0);
-	void unmap_log_w(offs_t offset, u32 data, u32 mem_mask = ~0);
-
 	u32 m_main_scratchpad_id = 0;
+
+	struct
+	{
+		struct
+		{
+			u32 nvpll, mpll, vpll;
+		} pramdac;
+	} nv3;
 };
 
 class riva128zx_device : public riva128_device
