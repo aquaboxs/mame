@@ -134,10 +134,13 @@ void riva128_device::mmio_map(address_map &map)
 {
 	map(0x00000000, 0x00000fff).lrw32(
 		NAME([this] (offs_t offset) {
+			u8 res = 0;
 			switch(offset) {
 			case 0x000000:
-				return m_main_scratchpad_id;
+				res = m_main_scratchpad_id;
+				break;
 			}
+			return res;
 		}),
 		NAME([this] (offs_t offset, u32 data, u32 mem_mask) {
 			COMBINE_DATA(&m_main_scratchpad_id);
@@ -158,10 +161,13 @@ void riva128_device::mmio_map(address_map &map)
 //  map(0x00601000, 0x0060****) PRMCIO VGA CRTC controls
 	map(0x00680000, 0x00680fff).lrw32(
 		NAME([this] (offs_t offset) {
+			u8 res = 0;
 			switch(offset) {
 			case 0x680508:
-				return nv3.pramdac.vpll;
+				res = nv3.pramdac.vpll;
+				break;
 			}
+			return res;
 		}),
 		NAME([this] (offs_t offset, u32 data, u32 mem_mask) {
 			switch(offset) {
